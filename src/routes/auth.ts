@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 import cookie from 'cookie'
 
-import { User } from "../entity/User";
+import User from "../entity/User";
 import auth from '../middleware/auth'
 
 const register = async (req: Request, res: Response) => {
@@ -47,7 +47,7 @@ const login = async (req: Request, res: Response) => {
 
         if (isEmpty(username)) errors.username = 'Username must not be empty'
         if (isEmpty(password)) errors.password = 'Password must not be empty'
-        if (Object.keys(errors)).length > 0 {
+        if (Object.keys(errors).length > 0) {
             return res.status(400).json(errors)
         }
 
