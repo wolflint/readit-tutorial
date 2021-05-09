@@ -1,8 +1,19 @@
 import { IsEmail, Length} from "class-validator";
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ColumnTypeUndefinedError, Index, CreateDateColumn, UpdateDateColumn, BeforeInsert} from "typeorm";
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    BaseEntity,
+    ColumnTypeUndefinedError,
+    Index,
+    CreateDateColumn,
+    UpdateDateColumn,
+    BeforeInsert
+} from "typeorm";
 
 import bcrypt from "bcrypt";
 import { classToPlain, Exclude } from "class-transformer";
+
 @Entity('users')
 export class User extends BaseEntity{
     constructor(user: Partial<User>) {
