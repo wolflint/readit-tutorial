@@ -46,7 +46,7 @@ const getPost = async (req: Request, res: Response) => {
     try {
         const post = await Post.findOneOrFail(
             { identifier, slug },
-            { relations: ['sub'] }
+            { relations: ['sub', 'comments'] }
         )
 
         return res.json(post)
@@ -60,12 +60,15 @@ const commentOnPost = async (req: Request, res: Response) => {
     const { identifier, slug } = req.params
     const body = req.body.body
 
+    console.log("PRINTING THE RESPONSE HERE")
+    console.log(res.locals.user.username)
+
     try {
         const post = await Post.findOneOrFail({ identifier, slug })
 
         const comment = new Comment({
             body,
-            user: res.locals.users,
+            username: res.locals.user.username,
             post,
         })
 
