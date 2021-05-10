@@ -5,7 +5,7 @@
    "username": "marcin",
    "password": "n!cr4m",
    "database": "readit",
-   "synchronize": true,
+   "synchronize": false,
    "logging": true,
    "entities": [
       "src/entity/**/*.ts"
