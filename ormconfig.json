@@ -3,7 +3,7 @@
    "host": "localhost",
    "port": 5432,
    "username": "marcin",
-   "password": "n!cr4m",
+   "password": "password1234",
    "database": "readit",
    "synchronize": false,
    "logging": true,
